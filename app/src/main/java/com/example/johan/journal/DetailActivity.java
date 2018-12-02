@@ -13,10 +13,11 @@ public class DetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
         Intent intent = getIntent();
+        String mood = "Mood: ";
         JournalEntry = (JournalEntry) intent.getSerializableExtra("clicked_journal");
         ((TextView) findViewById(R.id.DetailTitle)).setText(JournalEntry.GetTitle());
         ((TextView) findViewById(R.id.DetailTime)).setText(JournalEntry.GetTimestamp());
-        ((TextView) findViewById(R.id.DetailMood)).setText(JournalEntry.GetMood());
+        ((TextView) findViewById(R.id.DetailMood)).setText(mood + JournalEntry.GetMood());
         ((TextView) findViewById(R.id.DetailContent)).setText(JournalEntry.GetContent());
 
 

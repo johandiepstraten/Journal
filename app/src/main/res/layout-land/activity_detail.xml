@@ -8,7 +8,7 @@
 
     <TextView
         android:id="@+id/DetailTitle"
-        android:layout_width="351dp"
+        android:layout_width="561dp"
         android:layout_height="50dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
@@ -22,7 +22,7 @@
 
     <TextView
         android:id="@+id/DetailTime"
-        android:layout_width="224dp"
+        android:layout_width="439dp"
         android:layout_height="31dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
@@ -45,8 +45,8 @@
 
     <TextView
         android:id="@+id/DetailContent"
-        android:layout_width="351dp"
-        android:layout_height="452dp"
+        android:layout_width="563dp"
+        android:layout_height="256dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"

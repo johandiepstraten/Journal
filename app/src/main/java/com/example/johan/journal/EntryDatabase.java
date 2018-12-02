@@ -39,11 +39,13 @@ public class EntryDatabase extends SQLiteOpenHelper {
     }
     public void deleteEntry(long id) {
         SQLiteDatabase db = getWritableDatabase();
-        db.delete("Entries", "idNumber" + '=' + id, null); // idNumber is misschien " _id"
+        db.delete("Entries", " _id" + '=' + id, null); // idNumber is misschien " _id"
+
     }
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("create table entries( _id INTEGER PRIMARY KEY AUTOINCREMENT, Title String, Content String, Mood String, Timestamp TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP)");
+        db.execSQL("create table Entries ( _id INTEGER PRIMARY KEY AUTOINCREMENT, Title String," +
+                "Content String, Mood String, Timestamp TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP)");
         ContentValues testvalues = new ContentValues();
         testvalues.put("Title", "TESTTITLE");
         testvalues.put("Content", "TESTCONTENT");
