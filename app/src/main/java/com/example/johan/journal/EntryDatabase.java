@@ -18,7 +18,7 @@ public class EntryDatabase extends SQLiteOpenHelper {
         if (instance != null) {
             return instance;
         } else {
-            instance = new EntryDatabase(ConText, "Entries", null, 1);
+            instance = new EntryDatabase(ConText, "Entries", null, 2);
             return instance;
         }
     }
@@ -46,11 +46,11 @@ public class EntryDatabase extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("create table Entries ( _id INTEGER PRIMARY KEY AUTOINCREMENT, Title String," +
                 "Content String, Mood String, Timestamp TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP)");
-        ContentValues testvalues = new ContentValues();
-        testvalues.put("Title", "TESTTITLE");
-        testvalues.put("Content", "TESTCONTENT");
-        testvalues.put("Mood", "TESTMOOD");
-        db.insert("Entries", null, testvalues);
+//        ContentValues testvalues = new ContentValues();
+//        testvalues.put("Title", "TESTTITLE");
+//        testvalues.put("Content", "TESTCONTENT");
+//        testvalues.put("Mood", "TESTMOOD");
+//        db.insert("Entries", null, testvalues);
     }
 
     @Override
