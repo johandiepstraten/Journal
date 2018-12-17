@@ -16,8 +16,7 @@ public class InputActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_input);
     }
-
-
+//    Determine which emoticon the user picked in order to set the mood.
     public void MoodPicked(View view) {
         Log.d("Journal", "MoodPicked: " + String.valueOf(view.getId()));
         int egg = view.getId();
@@ -40,7 +39,7 @@ public class InputActivity extends AppCompatActivity {
                 break;
         }
     }
-
+//  make new object of JournalEntry for Journal made by user.
     public void addEntry(View view) {
         Log.d("Journal", "Submit: " + String.valueOf(view.getId()));
         TextView temptitle = findViewById(R.id.Title);
@@ -53,6 +52,7 @@ public class InputActivity extends AppCompatActivity {
         EntryDatabase db = EntryDatabase.getInstance(InputActivity.this);
         db.insert(entry);
 
+//      Send user back to MainActivity
         Intent intent = new Intent(InputActivity.this, MainActivity.class);
         startActivity(intent);
     }

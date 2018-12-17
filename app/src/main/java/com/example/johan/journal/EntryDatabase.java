@@ -11,6 +11,7 @@ public class EntryDatabase extends SQLiteOpenHelper {
 
     private static EntryDatabase instance;
 
+//    Initiate Database
     private EntryDatabase(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
     }
@@ -22,11 +23,13 @@ public class EntryDatabase extends SQLiteOpenHelper {
             return instance;
         }
     }
+//    Initiate cursor (for all entries)
     public Cursor selectAll()  {
         SQLiteDatabase db = getWritableDatabase();
         Cursor cursor = db.rawQuery("SELECT * FROM entries", null);
         return cursor;
     }
+//    method for entering new journal in database
     public void insert(JournalEntry Entry)    {
         SQLiteDatabase db = getWritableDatabase();
         ContentValues newvalues = new ContentValues();
@@ -37,6 +40,7 @@ public class EntryDatabase extends SQLiteOpenHelper {
         db.insert("Entries", null, newvalues);
 
     }
+//    method for deleting journal object
     public void deleteEntry(long id) {
         SQLiteDatabase db = getWritableDatabase();
         db.delete("Entries", " _id" + '=' + id, null); // idNumber is misschien " _id"
@@ -46,11 +50,6 @@ public class EntryDatabase extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("create table Entries ( _id INTEGER PRIMARY KEY AUTOINCREMENT, Title String," +
                 "Content String, Mood String, Timestamp TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP)");
-//        ContentValues testvalues = new ContentValues();
-//        testvalues.put("Title", "TESTTITLE");
-//        testvalues.put("Content", "TESTCONTENT");
-//        testvalues.put("Mood", "TESTMOOD");
-//        db.insert("Entries", null, testvalues);
     }
 
     @Override

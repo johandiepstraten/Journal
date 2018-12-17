@@ -16,7 +16,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+//        Initiate Database
         EntryDatabase db = EntryDatabase.getInstance(getApplicationContext());
+//        Initiate adapter and clicklisteners
         thisadapter = new EntryAdapter(this, db.selectAll());
         ListView listView = findViewById(R.id.ListView);
         listView.setAdapter(thisadapter);
@@ -29,9 +31,11 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(MainActivity.this, InputActivity.class);
         startActivity(intent);
     }
+//    Keep database updated
     private void updateData(EntryDatabase db)    {
         thisadapter.swapCursor(db.selectAll());
     }
+//    If clicked on item, get all values of class and pass it to DetailActivity
     private class OnItemClickListener implements AdapterView.OnItemClickListener {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -48,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         }
     }
+//    If long clicked on item in adapter, delete item from database.
     private class OnItemLongClickListener implements AdapterView.OnItemLongClickListener {
         @Override
         public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
@@ -56,9 +61,6 @@ public class MainActivity extends AppCompatActivity {
             long JournalId = longclickedJournal.getInt(longclickedJournal.getColumnIndex("_id"));
             db.deleteEntry(JournalId);
             updateData(db);
-//            finish();
-//            Intent intent = new Intent(MainActivity.this, MainActivity.this);
-//            startActivity(intent);
             return false;
         }
 

@@ -11,7 +11,7 @@ public class EntryAdapter extends ResourceCursorAdapter {
     public EntryAdapter (Context context, Cursor cursor) {
         super(context, R.layout.entry_row, cursor);
     }
-
+//  Set values that we want to show in the adapter for each Journal
     @Override
     public void bindView(View view, Context context, Cursor cursor) {
         ((TextView) view.findViewById(R.id.Title)).setText(cursor.getString(cursor.getColumnIndex("Title")));

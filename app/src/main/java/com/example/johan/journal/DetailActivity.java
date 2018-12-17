@@ -8,6 +8,8 @@ import android.widget.TextView;
 public class DetailActivity extends AppCompatActivity {
 
     JournalEntry JournalEntry;
+
+//    Set all values of chosen object to show in the DetailActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
